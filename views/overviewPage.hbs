@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>USIU BRAND STORE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" type="text/css" href="../styles/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
+<script>
+  let one = 0
+  let two = 0
+  let three = 0
+  let four = 0
+  let five = 0
+
+  window.addEventListener("load", (event) => {
+    idsList = ["oneshow", "twoshow", "threeshow", "fourshow", "fiveshow"]
+    for(let i=0; i<idsList.length; i++){
+      document.getElementById(idsList[i]).value = 0
+    }
+  });
+  function add(number, id){
+    if(number==10){
+      return 10
+    }
+    number++
+    document.getElementById(id).value = number
+    return number
+  }
+  function remove(number, id){
+    if(number==0){
+      return 0
+    }
+    number--
+    document.getElementById(id).value = number
+    return number
+  }
+
+  function oneadd(){one = add(one, "oneshow")}
+  function twoadd(){two = add(two, "twoshow")}
+  function threeadd(){three = add(three, "threeshow")}
+  function fouradd(){four = add(four, "fourshow")}
+  function fiveadd(){five = add(five, "fiveshow")}
+
+  function oneremove(){one = remove(one, "oneshow")}
+  function tworemove(){two = remove(two, "twoshow")}
+  function threeremove(){three = remove(three, "threeshow")}
+  function fourremove(){four = remove(four, "fourshow")}
+  function fiveremove(){five = remove(five, "fiveshow")}
+  
+  function settotal(){
+    document.getElementById("total").value = 
+      document.getElementById("oneshow").value + "," +
+      document.getElementById("twoshow").value + "," +
+      document.getElementById("threeshow").value + "," +
+      document.getElementById("fourshow").value + "," +
+      document.getElementById("fiveshow").value
+  }
+  
+</script>
+
+</head>
+<body>
+<div>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+            <div class="w3-right w3-hide-small">
+            <a href="menu" class="w3-bar-item w3-button">CATALOGUE</a>
+            <a href="contact" class="w3-bar-item w3-button">CONTACT</a>
+            </div>
+        </div>
+    </div>
+
+<hr>
+    <div class="w3-row w3-padding-64" id="menu">
+      <div class="w3-col l6 w3-padding-large">
+        <h1 class="w3-center" style="color: rgb(15, 31, 255)">Our Special Offers</h1><br>
+        <h4>USIU Branded Hoodie</h4>
+        <p class="w3-text-grey">Get yourself a unique USIU branded hoodie with the cheapest price  <br><strike>Kshs. 2500</strike><strong><em>Kshs. 2250</em></strong></p><br>
+      
+        <h4>USIU Branded Mugs</h4>
+        <p class="w3-text-grey">Get yourself a unique USIU branded mug with the cheapest price <br><strike>Kshs. 800</strike><strong><em>Kshs. 600</em></strong></p>    
+      
+        <h4>USIU Branded Tote Bags</h4>
+        <p class="w3-text-grey">Get yourself a unique USIU branded tote bag with the cheapest price <br><strike>Kshs. 1800</strike><strong><em>Kshs. 1600</em></strong></p><br>
+      
+        <h4>USIU Branded Caps</h4>
+        <p class="w3-text-grey">Get yourself a unique USIU branded cap with the cheapest price <br><strike>Kshs. 700</strike><strong><em>Kshs. 550</em></strong></p><br>
+      
+        <h4>USIU Branded Bottles</h4>
+        <p class="w3-text-grey">Get yourself a unique USIU branded bottle with the cheapest price<br><strike>Kshs. 1000</strike><strong><em>Kshs. 600</em></strong></p><br>
+      
+      </div>
+    
+      <div class="w3-col l6 w3-padding-large">
+        <button onclick="oneadd()" id="oneadd" style="margin-top:150px; color:black";>+</button>
+        <button onclick="oneremove()" id="oneremove">-</button>
+        <input disabled id="oneshow">
+        <br>
+        <button onclick="twoadd()" id="twoadd" style="margin-top:100px;color:black">+</button>
+        <button onclick="tworemove()" id="tworemove">-</button>
+        <input disabled id="twoshow">
+        <br>
+        <button onclick="threeadd()" id="threeadd" style="margin-top:100px; color:black;">+</button>
+        <button onclick="threeremove()" id="threeremove">-</button>
+        <input disabled id="threeshow">
+        <br>
+        <button onclick="fouradd()" id="fouradd" style="margin-top:100px;color:black;">+</button>
+        <button onclick="fourremove()" id="fourremove">-</button>
+        <input disabled id="fourshow">
+        <br>
+        <button onclick="fiveadd()" id="fiveadd" style="margin-top:100px;color:black">+</button>
+        <button onclick="fiveremove()" id="fiveremove">-</button>
+        <input disabled id="fiveshow">
+        <br>
+        <p style="margin-bottom:15px;"></p>
+        <form action="/calculate" method="post">
+          <input name="total" id="total" style="display:none">
+          <button onclick="settotal()" id="charge" style="margin-top:15px;width:110px;border:3px solid red;padding:5px;background-color:blue;color:white;border-radius:20px;" type="submit">Get Charges</button>
+        </form>
+      </div>
+
+      <div class="w3-col l6 w3-padding-large">
+        <img src="../images/table.jpeg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="height:70vh;float:right;margin-top:-700px;margin-bottom:0vh;">
+      </div>
+    </div>
+
+  <hr>
+</div>
+</div>
+</body>
+</html>
